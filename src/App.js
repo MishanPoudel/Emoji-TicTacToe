@@ -1,10 +1,9 @@
-import './App.css';
-import TicTacToe from './components/TicTacToe';
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
-      <TicTacToe/>
+      <Home/>
     </>
   );
 }
