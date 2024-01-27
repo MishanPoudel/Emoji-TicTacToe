@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Selection() {
   return (
@@ -12,8 +13,8 @@ function Selection() {
             <button className="btn btn-ghost text-7xl mt-5">🙉</button>
         </div>
         <div className='flex justify-center mt-3'>
-            <button className='btn btn-glass mx-3 text-2xl w-40 text-white bg-blue-700'>Back</button>
-            <button className='btn btn-glass mx-3 text-2xl w-40 text-white bg-black'>Play</button>
+            <Link to="/" className='btn btn-glass mx-3 text-2xl w-40 text-white bg-blue-700'>Back</Link>
+            <Link to="/gameMode" className='btn btn-glass mx-3 text-2xl w-40 text-white bg-black'>Play</Link>
         </div>
         </div>
     </div>

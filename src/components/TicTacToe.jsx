@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const TicTacToe = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
   const winner = calculateWinner(board);
-  
+
   let p1 = "😔";
   let p2 = "😈";
+  
+  const navigate = useNavigate();  
+
   const handleClick = (index) => {
     if (board[index] || winner) {
       return;
@@ -19,17 +23,19 @@ const TicTacToe = () => {
 
   const getStatus = useMemo(() => {
     if (winner) {
-      return `Winner: ${winner}`;
+      console.log(`Winner: ${winner}`);
     } else if (!board.includes(null)) {
-      return 'It\'s a draw!';
+      console.log('It\'s a draw!');
     } else {
-      return `Next player: ${isXNext ? p1 : p2}`;
+      console.log(`Next player: ${isXNext ? p1 : p2}`);
     }
-  }, [board, isXNext, winner]);
+  }, [board, isXNext, winner, p1, p2]);
 
   useEffect(() => {
-    document.title = `Tic Tac Toe - ${getStatus}`;
-  }, [getStatus]);
+    if (winner) {
+      navigate("/end");  // Use navigate instead of Navigate
+    }
+  }, [getStatus, winner, navigate]);
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
