@@ -1,9 +1,13 @@
-import Home from "./components/Home";
+// import Home from "./components/Home";
+
+import Selection from "./components/Selection";
 
 function App() {
   return (
     <>
-      <Home/>
+      {/* <Home/> */}
+      <Selection/>
+
     </>
   );
 }
