@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import EmojiBox from "./EmojiBox";
+import Selection from "./Selection";
+import TicTacToe from "./TicTacToe";
 
 function EmojiApi() {
   const [emojiList, setEmojiList] = useState([]);
+  const [selectedEmoji, setSelectedEmoji] = useState("");
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_EMOJI_API_KEY;
@@ -27,10 +30,15 @@ function EmojiApi() {
     fetchData();
   }, []);
 
+  const handleEmojiClick = (emoji) => {
+    setSelectedEmoji(emoji);
+  };
 
   return (
     <>
+      <Selection selectedEmoji={selectedEmoji} onEmojiClick={handleEmojiClick}/>
       <EmojiBox emojiList={emojiList} onEmojiClick={handleEmojiClick} />
+      <TicTacToe selectedEmoji={selectedEmoji}/>
     </>
   );
 }
