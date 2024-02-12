@@ -24,19 +24,18 @@ const TicTacToe = () => {
 
   const getStatus = useMemo(() => {
     if (winner) {
-      console.log(`Winner: ${winner}`);
+      return `Congrats, ${winner} Won!`;
     } else if (!board.includes(null)) {
-      console.log("It's a draw!");
-    } else {
-      console.log(`Next player: ${isXNext ? p1 : p2}`);
-    }
-  }, [board, isXNext, winner, p1, p2]);
+      return "It's a draw!";
+    } 
+  }, [board, winner]);
 
   useEffect(() => {
-    if (winner) {
-      navigate("/end");
+    if (winner || !board.includes(null)) {
+      navigate("/end", { state: { getStatus, winner } });
     }
-  }, [getStatus, winner, navigate]);
+  }, [getStatus, winner, board, navigate]);
+  
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
