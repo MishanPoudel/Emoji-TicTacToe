@@ -14,14 +14,13 @@ function EmojiBox({ onEmojiClick }) {
         );
         const data = await response.json();
         setEmojiList(data);
-        console.log(data); 
       } catch (error) {
         console.error("Error fetching emoji data:", error);
       }
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   const customStyle = {
     fontFamily:
@@ -38,7 +37,7 @@ function EmojiBox({ onEmojiClick }) {
 
   return (
     <>
-      <div style={customStyle} className="bg-blue-300 max-w-[20%] px-8 py-4 h-[50vh] overflow-y-auto rounded-lg">
+      <div style={customStyle} className="bg-blue-300 max-w-[20%] px-8 py-4 h-[50vh] overflow-y-auto rounded-lg ">
         <input
           type="text"
           placeholder="Search Emoji"

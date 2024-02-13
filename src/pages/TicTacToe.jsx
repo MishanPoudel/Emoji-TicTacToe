@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const TicTacToe = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
   const winner = calculateWinner(board);
+  const { state } = useLocation();
+  const { clickedEmoji1, clickedEmoji2 } = state || {};
 
-  let p1 = "😹";
-  let p2 = "😾";
+  let p1 = `${clickedEmoji1}`;
+  let p2 = `${clickedEmoji2}`;
 
   const navigate = useNavigate();
 
