@@ -16,7 +16,6 @@ function App() {
           <Route exact path="/gameMode" element={<GameMode />} />
           <Route exact path="/game" element={<TicTacToe />} />
           <Route exact path="/end" element={<End />} />
-          <Route exact path="/emoji" element={<EmojiApi />} />
         </Routes>
       </Router>
     </>
