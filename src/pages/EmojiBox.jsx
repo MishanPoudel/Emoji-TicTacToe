@@ -22,11 +22,6 @@ function EmojiBox({ onEmojiClick }) {
     fetchData();
   }, []);
 
-  const customStyle = {
-    fontFamily:
-      "Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
-  };
-
   const handleSearch = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
@@ -37,7 +32,7 @@ function EmojiBox({ onEmojiClick }) {
 
   return (
     <>
-      <div style={customStyle} className="bg-blue-300 max-w-[20%] px-8 py-4 h-[50vh] overflow-y-auto rounded-lg ">
+      <div className="bg-blue-300 max-w-[20%] px-8 py-4 h-[50vh] overflow-y-auto rounded-lg ">
         <input
           type="text"
           placeholder="Search Emoji"
