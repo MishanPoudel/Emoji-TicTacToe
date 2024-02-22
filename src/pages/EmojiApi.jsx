@@ -8,7 +8,7 @@ function EmojiApi() {
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_EMOJI_API_KEY;
-
+    
     if (!apiKey) {
       console.error("API key not provided.");
       return;

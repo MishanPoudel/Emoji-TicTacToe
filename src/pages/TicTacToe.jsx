@@ -35,9 +35,9 @@ const TicTacToe = () => {
 
   useEffect(() => {
     if (winner || !board.includes(null)) {
-      navigate("/end", { state: { getStatus, winner } });
+      navigate("/end", { state: { getStatus, winner, clickedEmoji1, clickedEmoji2 } });
     }
-  }, [getStatus, winner, board, navigate]);
+  }, [getStatus, winner, board, navigate, clickedEmoji1, clickedEmoji2]);  
   
 
   const resetGame = () => {
