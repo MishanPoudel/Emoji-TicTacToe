@@ -4,7 +4,6 @@ import Selection from "./pages/Selection";
 import GameMode from "./pages/GameMode";
 import End from "./pages/End";
 import TicTacToe from "./pages/TicTacToe";
-import EmojiApi from "./pages/EmojiApi";
 
 function App() {
   return (
