@@ -32,19 +32,17 @@ function EmojiBox({ onEmojiClick }) {
 
   return (
     <>
-      <div className="bg-blue-300 max-w-[20%] px-8 py-4 h-[50vh] overflow-y-auto rounded-lg ">
+      <div className="bg-blue-300 lg:max-w-[20%] px-6 py-4 h-[50vh] overflow-y-auto rounded-3xl lg:mt-0 mt-7 lg:ml-6">
         <input
           type="text"
           placeholder="Search Emoji"
-          className="input input-bordered input-info w-[30vh] mb-5"
+          className="input input-bordered input-info w-full mb-5"
           onKeyUp={handleSearch}
         />
         <ul className="flex flex-wrap gap-2">
           {emojiList &&
             emojiList
-              .filter((emoji) =>
-                emoji.slug.toLowerCase().includes(searchTerm)
-              )
+              .filter((emoji) => emoji.slug.toLowerCase().includes(searchTerm))
               .map((emoji, index) => (
                 <button
                   className="btn btn-circle btn-outline hover:bg-gray-600 text-3xl h-12 w-12"

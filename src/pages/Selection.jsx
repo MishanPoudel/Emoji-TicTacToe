@@ -83,70 +83,68 @@ function Selection() {
   };
 
   return (
-    <>
-      <div className="flex justify-center items-center h-screen">
-        <div className="bg-white h-[27%] w-[25%] rounded-lg">
-          <div className="text-black font-semibold text-2xl border-gray-200 border-b-2 w-full flex justify-center py-3">
-            Select Who You Want To Be
-          </div>
-          <div className="text-black flex justify-evenly h-[50%]">
-            <button
-              className="btn btn-ghost btn-circle text-7xl mt-5"
-              onClick={handleToggle1}
-            >
-              {clickedEmoji1}
-            </button>
-
-            <div className="font-bold text-3xl flex justify-center items-center">
-              OR
-            </div>
-            <button
-              className="btn btn-ghost btn-circle text-7xl mt-5"
-              onClick={handleToggle2}
-            >
-              {clickedEmoji2}
-            </button>
-          </div>
-          {errorMessage && (
+    <div className="flex lg:flex-row flex-col justify-center items-center h-screen">
+      <div className="bg-white rounded-lg p-4 w-full max-w-lg">
+        <div className="text-black font-semibold text-3xl border-b-2 border-gray-200 py-3 text-center">
+          Select Who You Want To Be
+        </div>
+        <div className="text-black flex justify-evenly items-center h-40 lg:items-start lg:pt-10">
+          <button
+            className="btn btn-ghost btn-circle text-7xl mx-2"
+            onClick={handleToggle1}
+          >
+            {clickedEmoji1}
+          </button>
+          <div className="font-bold text-3xl lg:mt-5">v/s</div>
+          <button
+            className="btn btn-ghost btn-circle text-7xl mx-2"
+            onClick={handleToggle2}
+          >
+            {clickedEmoji2}
+          </button>
+        </div>
+        {errorMessage && (
+          <div className="relative w-full mt-2">
             <div
               role="alert"
-              className="absolute top-2 left-[25vw] w-[50%] alert alert-error"
+              className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-red-200 border border-red-400 text-red-700 px-4 py-2 rounded-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="stroke-current shrink-0 h-6 w-6"
+                className="h-6 w-6 inline-block mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
+                stroke="currentColor"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
               <span>{errorMessage}</span>
             </div>
-          )}
-          <div className="flex justify-center mt-3">
-            <Link
-              to="/"
-              className="btn btn-glass mx-3 text-2xl w-40 text-white bg-blue-700"
-            >
-              Back
-            </Link>
-            <button
-              className="btn btn-glass mx-3 text-2xl w-40 text-white bg-black"
-              onClick={handlePlayClick}
-            >
-              Play
-            </button>
           </div>
+        )}
+        <div className="flex justify-center mt-4">
+          <Link
+            to="/"
+            className="btn btn-glass mx-2 text-2xl w-40 text-white bg-blue-700"
+          >
+            Back
+          </Link>
+          <button
+            className="btn btn-glass mx-2 text-2xl w-40 text-white bg-black"
+            onClick={handlePlayClick}
+          >
+            Play
+          </button>
         </div>
-        {isOpen1 && <EmojiBox onEmojiClick={handleEmojiClick1} />}
-        {isOpen2 && <EmojiBox onEmojiClick={handleEmojiClick2} />}
       </div>
-    </>
+      {isOpen1 && <EmojiBox onEmojiClick={handleEmojiClick1} />}
+      {isOpen2 && <EmojiBox onEmojiClick={handleEmojiClick2} />}
+    </div>
   );
 }
 

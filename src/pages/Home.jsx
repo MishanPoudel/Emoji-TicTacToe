@@ -53,23 +53,23 @@ function Home() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center h-screen">
+      <div className="flex flex-col justify-center items-center h-screen overflow-hidden">
         <div className="bg-white h-24 w-24 rounded-md">
           <button className="btn btn-ghost btn-circle text-5xl m-6">
             {randomEmoji}
           </button>
         </div>
         <p className="text-5xl font-bold my-16 h-14">Emoji TicTacToe</p>
-        <div className="w-[25%] flex justify-between px-12">
+        <div className="lg:w-[25%] flex justify-around px-12 flex-col lg:flex-row">
           <button
             onClick={handleClickSingle}
-            className="btn btn-ghost text-2xl my-6 bg-white text-black"
+            className="btn btn-ghost text-2xl md:mr-5 my-6 bg-white text-black h-20 lg:h-auto"
           >
             Single-Player
           </button>
           <button
             onClick={handleClickMulti}
-            className="btn btn-ghost text-2xl my-6 bg-white text-black"
+            className="btn btn-ghost text-2xl lg:my-6 bg-white text-black h-20 lg:h-auto"
           >
             Multi-Player
           </button>

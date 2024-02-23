@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import { handleBotMove } from './BotLogic';
+import { handleBotMove } from "./BotLogic";
 
 const TicTacToe = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -10,7 +10,7 @@ const TicTacToe = () => {
   const winner = calculateWinner(board);
   const { state } = useLocation();
   const { clickedEmoji1, clickedEmoji2, easy } = state || {};
-  console.log(easy, "this is easy")
+  console.log(easy, "this is easy");
 
   let p1 = `${clickedEmoji1}`;
   let p2 = `${clickedEmoji2}`;
@@ -29,18 +29,23 @@ const TicTacToe = () => {
 
   const getStatus = useMemo(() => {
     if (winner) {
-      return `Congrats, ${winner} Won!`;
+      if (winner === "🤖") {
+        return `lol, ${winner} Won!`;
+      } else {
+        return `Congrats, ${winner} Won!`;
+      }
     } else if (!board.includes(null)) {
       return "It's a draw!";
-    } 
+    }
   }, [board, winner]);
 
   useEffect(() => {
     if (winner || !board.includes(null)) {
-      navigate("/end", { state: { getStatus, winner, clickedEmoji1, clickedEmoji2, easy } });
+      navigate("/end", {
+        state: { getStatus, winner, clickedEmoji1, clickedEmoji2, easy },
+      });
     }
-  }, [getStatus, winner, board, navigate, clickedEmoji1, clickedEmoji2, easy]);  
-  
+  }, [getStatus, winner, board, navigate, clickedEmoji1, clickedEmoji2, easy]);
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
@@ -57,9 +62,34 @@ const TicTacToe = () => {
   );
 
   useEffect(() => {
-    handleBotMove(board, isXNext, p1, p2, winner, navigate, getStatus, clickedEmoji1, clickedEmoji2, easy, setIsXNext, setBoard);
-  }, [getStatus, winner, board, navigate, clickedEmoji1, clickedEmoji2, easy, isXNext, setIsXNext, setBoard,p1 ,p2]);  
-
+    handleBotMove(
+      board,
+      isXNext,
+      p1,
+      p2,
+      winner,
+      navigate,
+      getStatus,
+      clickedEmoji1,
+      clickedEmoji2,
+      easy,
+      setIsXNext,
+      setBoard
+    );
+  }, [
+    getStatus,
+    winner,
+    board,
+    navigate,
+    clickedEmoji1,
+    clickedEmoji2,
+    easy,
+    isXNext,
+    setIsXNext,
+    setBoard,
+    p1,
+    p2,
+  ]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
@@ -69,8 +99,8 @@ const TicTacToe = () => {
             className="absolute bg-gray-300 h-full w-[50%] rounded-md z-10 top-0"
             animate={{ translateX: isXNext ? 0 : 215 }}
           ></motion.div>
-          <div className="text-5xl grow h-16 mt-1 z-20">{p1}</div>
-          <div className="text-5xl grow h-16 mt-1 z-30">{p2}</div>
+          <div className="text-5xl grow h-16 lg:mt-1 mt-3 z-20">{p1}</div>
+          <div className="text-5xl grow h-16 lg:mt-1 mt-3 z-30">{p2}</div>
         </div>
 
         <div className="grid grid-cols-3 gap-2 bg-white p-3 rounded-md">
