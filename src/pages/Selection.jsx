@@ -109,10 +109,10 @@ function Selection() {
         </div>
         {/* Error message */}
         {errorMessage && (
-          <div className="relative w-full mt-2">
+          <div className="w-full mt-2">
             <div
               role="alert"
-              className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-red-200 border border-red-400 text-red-700 px-4 py-2 rounded-md"
+              className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-red-200 border border-red-400 text-red-700 px-4 py-2 rounded-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
