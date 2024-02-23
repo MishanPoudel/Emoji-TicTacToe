@@ -8,21 +8,27 @@ function Selection() {
   const [clickedEmoji1, setClickedEmoji1] = useState("❓");
   const [errorMessage, setErrorMessage] = useState(null);
   const single = useLocation().state?.single;
-const initialClickedEmoji2 = single ? "🤖" : "❓";
-const [clickedEmoji2, setClickedEmoji2] = useState(initialClickedEmoji2);
+  const initialClickedEmoji2 = single ? "🤖" : "❓";
+  const [clickedEmoji2, setClickedEmoji2] = useState(initialClickedEmoji2);
 
   console.log(single);
 
   const navigate = useNavigate();
 
   const handleToggle1 = () => {
-    setIsOpen1(!isOpen1);
+    if (isOpen2 === true) {
+      setIsOpen2(false);
+      setIsOpen1(true);
+    } else setIsOpen1(!isOpen1);
   };
 
   const handleToggle2 = () => {
     if (single) return null;
-    else
-    setIsOpen2(!isOpen2);
+    else setIsOpen2(!isOpen2);
+    if (isOpen1 === true) {
+      setIsOpen1(false);
+      setIsOpen2(true);
+    } else setIsOpen2(!isOpen1);
   };
 
   const handleClose = () => {
