@@ -11,10 +11,10 @@ function Selection() {
   const initialClickedEmoji2 = single ? "🤖" : "❓";
   const [clickedEmoji2, setClickedEmoji2] = useState(initialClickedEmoji2);
 
-  console.log(single);
-
+  // Navigation hook
   const navigate = useNavigate();
 
+  // Toggle handlers
   const handleToggle1 = () => {
     if (isOpen2 === true) {
       setIsOpen2(false);
@@ -31,11 +31,13 @@ function Selection() {
     } else setIsOpen2(!isOpen1);
   };
 
+  // Close emoji selection
   const handleClose = () => {
     setIsOpen1(false);
     setIsOpen2(false);
   };
 
+  // Handle emoji selection
   const handleEmojiClick1 = (emoji) => {
     setClickedEmoji1(emoji);
     handleClose();
@@ -46,6 +48,7 @@ function Selection() {
     handleClose();
   };
 
+  // Handle play button click
   const handlePlayClick = () => {
     if (single) {
       if (clickedEmoji1 === "❓") {
@@ -84,6 +87,7 @@ function Selection() {
 
   return (
     <div className="flex lg:flex-row flex-col justify-center items-center h-screen">
+      {/* Selection Box */}
       <div className="bg-white rounded-lg p-4 w-full max-w-lg">
         <div className="text-black font-semibold text-3xl border-b-2 border-gray-200 py-3 text-center">
           Select Who You Want To Be
@@ -103,6 +107,7 @@ function Selection() {
             {clickedEmoji2}
           </button>
         </div>
+        {/* Error message */}
         {errorMessage && (
           <div className="relative w-full mt-2">
             <div

@@ -10,13 +10,14 @@ const TicTacToe = () => {
   const winner = calculateWinner(board);
   const { state } = useLocation();
   const { clickedEmoji1, clickedEmoji2, easy } = state || {};
-  console.log(easy, "this is easy");
 
   let p1 = `${clickedEmoji1}`;
   let p2 = `${clickedEmoji2}`;
 
+  // Navigation hook
   const navigate = useNavigate();
 
+  // Click handler for square
   const handleClick = (index) => {
     if (board[index] || winner) {
       return;
@@ -27,6 +28,7 @@ const TicTacToe = () => {
     setIsXNext(!isXNext);
   };
 
+  // Get game status
   const getStatus = useMemo(() => {
     if (winner) {
       if (winner === "🤖") {
@@ -39,6 +41,7 @@ const TicTacToe = () => {
     }
   }, [board, winner]);
 
+  // Effect to navigate to end screen when game ends
   useEffect(() => {
     if (winner || !board.includes(null)) {
       navigate("/end", {
@@ -47,11 +50,13 @@ const TicTacToe = () => {
     }
   }, [getStatus, winner, board, navigate, clickedEmoji1, clickedEmoji2, easy]);
 
+  // Reset game
   const resetGame = () => {
     setBoard(Array(9).fill(null));
     setIsXNext(true);
   };
 
+  // Render square button
   const renderSquare = (index) => (
     <button
       className="h-32 w-32 flex items-center justify-center text-4xl"
@@ -61,6 +66,7 @@ const TicTacToe = () => {
     </button>
   );
 
+  // Effect to handle bot move
   useEffect(() => {
     handleBotMove(
       board,
@@ -128,6 +134,7 @@ const TicTacToe = () => {
   );
 };
 
+// Function to calculate winner
 const calculateWinner = (squares) => {
   const lines = [
     [0, 1, 2],
