@@ -1,8 +1,8 @@
 <h1 align="center">Emoji TicTacToe</h1>
 
 <p align="center">
-  <img src="screenshots/screenshot(1).png" alt="Emoji TicTacToe Demo 1" width="400px">
-  <img src="screenshots/screenshot(2).png" alt="Emoji TicTacToe Demo 2" width="400px">
+  <img src="public/screenshots/screenshot(1).png" alt="Emoji TicTacToe Demo 1" width="400px">
+  <img src="public/screenshots/screenshot(1).png" alt="Emoji TicTacToe Demo 2" width="400px">
 </p>
 
 <p align="center">
@@ -41,9 +41,9 @@
 ## 🖼️ Game Demo
 
 <p align="center">
-  <img src="screenshots/screenshot(3).png" alt="Emoji TicTacToe Demo 3" width="400px">
-  <img src="screenshots/screenshot(4).png" alt="Emoji TicTacToe Demo 4" width="400px">
-  <img src="screenshots/screenshot(5).png" alt="Emoji TicTacToe Demo 5" width="400px">
+  <img src="public/screenshots/screenshot(1).png" alt="Emoji TicTacToe Demo 3" width="400px">
+  <img src="public/screenshots/screenshot(1).png" alt="Emoji TicTacToe Demo 4" width="400px">
+  <img src="public/screenshots/screenshot(1).png" alt="Emoji TicTacToe Demo 5" width="400px">
 </p>
 
 ## 🤝 Contributing
