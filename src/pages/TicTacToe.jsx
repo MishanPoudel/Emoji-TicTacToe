@@ -2,13 +2,15 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { handleBotMove } from './BotLogic';
 
 const TicTacToe = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
   const winner = calculateWinner(board);
   const { state } = useLocation();
-  const { clickedEmoji1, clickedEmoji2 } = state || {};
+  const { clickedEmoji1, clickedEmoji2, easy } = state || {};
+  console.log(easy, "this is easy")
 
   let p1 = `${clickedEmoji1}`;
   let p2 = `${clickedEmoji2}`;
@@ -35,9 +37,9 @@ const TicTacToe = () => {
 
   useEffect(() => {
     if (winner || !board.includes(null)) {
-      navigate("/end", { state: { getStatus, winner, clickedEmoji1, clickedEmoji2 } });
+      navigate("/end", { state: { getStatus, winner, clickedEmoji1, clickedEmoji2, easy } });
     }
-  }, [getStatus, winner, board, navigate, clickedEmoji1, clickedEmoji2]);  
+  }, [getStatus, winner, board, navigate, clickedEmoji1, clickedEmoji2, easy]);  
   
 
   const resetGame = () => {
@@ -53,6 +55,11 @@ const TicTacToe = () => {
       {board[index]}
     </button>
   );
+
+  useEffect(() => {
+    handleBotMove(board, isXNext, p1, p2, winner, navigate, getStatus, clickedEmoji1, clickedEmoji2, easy, setIsXNext, setBoard);
+  }, [getStatus, winner, board, navigate, clickedEmoji1, clickedEmoji2, easy, isXNext, setIsXNext, setBoard,p1 ,p2]);  
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">

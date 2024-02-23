@@ -1,15 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 function GameMode() {
+  const { state } = useLocation();
+  const { clickedEmoji1, clickedEmoji2 } = state || {};
+  const navigate = useNavigate();
+
+  const handleClick1 = () => {
+    navigate("/game", { state: { clickedEmoji1, clickedEmoji2, easy:true } });
+  }
+  const handleClick2 = () => {
+    navigate("/game", { state: { clickedEmoji1, clickedEmoji2, easy:false } });
+  }
   return (
       <>
       <div className='flex justify-center items-center h-screen'>
         <div className='bg-white w-[25%] rounded-lg'>
             <div className='text-black font-semibold text-2xl border-gray-200 border-b-2 w-full flex justify-center py-3'>Select The Game Mode</div>
         <div className='flex justify-center my-3'>
-            <Link to="/game" className='btn btn-glass mx-3 text-2xl w-40 text-white bg-blue-700'>Easy</Link>
-            <Link to="/game" className='btn btn-glass mx-3 text-2xl w-40 text-white bg-black'>Hard</Link>
+            <button onClick={handleClick1} className='btn btn-glass mx-3 text-2xl w-40 text-white bg-blue-700'>Easy</button>
+            <button onClick={handleClick2} className='btn btn-glass mx-3 text-2xl w-40 text-white bg-black'>Hard</button>
         </div>
         </div>
     </div>

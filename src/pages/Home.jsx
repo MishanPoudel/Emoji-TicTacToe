@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [emojiList, setEmojiList] = useState([]);
   const [randomEmoji, setRandomEmoji] = useState("🐒");
+  const navigate = useNavigate();
+
+  const handleClickSingle = () => {
+    navigate("/select", { state: { single: true } });
+  };
+
+  const handleClickMulti = () => {
+    navigate("/select", { state: { single: false } });
+  };
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_EMOJI_API_KEY;
@@ -20,7 +29,8 @@ function Home() {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
-        setEmojiList(await response.json());
+        const data = await response.json();
+        setEmojiList(data);
       } catch (error) {
         console.error("Error fetching emoji data:", error);
       }
@@ -35,9 +45,9 @@ function Home() {
         const randomIndex = Math.floor(Math.random() * emojiList.length);
         setRandomEmoji(emojiList[randomIndex].character);
       }
-      console.log('next')
+      console.log("next");
     }, 1300);
-  
+
     return () => clearInterval(intervalId);
   }, [emojiList]);
 
@@ -51,8 +61,18 @@ function Home() {
         </div>
         <p className="text-5xl font-bold my-16 h-14">Emoji TicTacToe</p>
         <div className="w-[25%] flex justify-between px-12">
-          <Link to="/select" className="btn btn-ghost text-2xl my-6 bg-white text-black">Single-Player</Link>
-          <Link to="/select" className="btn btn-ghost text-2xl my-6 bg-white text-black">Multi-Player</Link>
+          <button
+            onClick={handleClickSingle}
+            className="btn btn-ghost text-2xl my-6 bg-white text-black"
+          >
+            Single-Player
+          </button>
+          <button
+            onClick={handleClickMulti}
+            className="btn btn-ghost text-2xl my-6 bg-white text-black"
+          >
+            Multi-Player
+          </button>
         </div>
       </div>
     </>
