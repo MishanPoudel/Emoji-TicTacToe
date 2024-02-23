@@ -1,7 +1,8 @@
 <h1 align="center">Emoji TicTacToe</h1>
 
 <p align="center">
-  <a src="emoji-tic-tac-toe.vercel.app" alt="Emoji TicTacToe Demo" width="600px">
+  <img src="screenshots/screenshot(1).png" alt="Emoji TicTacToe Demo 1" width="400px">
+  <img src="screenshots/screenshot(2).png" alt="Emoji TicTacToe Demo 2" width="400px">
 </p>
 
 <p align="center">
@@ -37,6 +38,22 @@
 - **Single Player Mode**: Select your preferred difficulty level (easy or hard) and make your moves by clicking on the squares on the board. Aim to beat the computer by forming a line of three emojis either horizontally, vertically, or diagonally.
 - **Local Multiplayer Mode**: Play against a friend by taking turns to make moves. The player who succeeds in forming a line of three emojis first wins the game.
 
+## 🖼️ Game Demo
+
+<p align="center">
+  <img src="screenshots/screenshot(3).png" alt="Emoji TicTacToe Demo 3" width="400px">
+  <img src="screenshots/screenshot(4).png" alt="Emoji TicTacToe Demo 4" width="400px">
+  <img src="screenshots/screenshot(5).png" alt="Emoji TicTacToe Demo 5" width="400px">
+</p>
+
 ## 🤝 Contributing
 
 Contributions to Emoji TicTacToe are highly appreciated! Whether it's bug fixes, feature enhancements, or suggestions, feel free to open an issue or submit a pull request. Let's make Emoji TicTacToe even better together!
+
+## ⭐ Support
+
+If you find Emoji TicTacToe helpful or you like what we're doing, please consider giving the repository a star! It's a quick way to show your support for this project.
+
+<p align="center">
+  <img src="https://giffiles.alphacoders.com/220/220251.gif" alt="Support Emoji TicTacToe GIF" width="200px">
+</p>
