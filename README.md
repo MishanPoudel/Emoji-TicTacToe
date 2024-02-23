@@ -1,7 +1,7 @@
 <h1 align="center">Emoji TicTacToe</h1>
 
 <p align="center">
-  <img src="https://your-image-url.com" alt="Emoji TicTacToe Demo" width="600px">
+  <a src="emoji-tic-tac-toe.vercel.app" alt="Emoji TicTacToe Demo" width="600px">
 </p>
 
 <p align="center">
